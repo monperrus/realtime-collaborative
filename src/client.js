@@ -109,6 +109,10 @@ function renderTree(nodes, container, depth = 0) {
   }
 }
 
+document.addEventListener('keydown', e => {
+  if (e.key === 's' && (e.ctrlKey || e.metaKey)) e.preventDefault()
+})
+
 // SSE for live file-tree updates
 const events = new EventSource('/api/watch')
 events.onmessage = e => {
